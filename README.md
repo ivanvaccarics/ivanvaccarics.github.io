@@ -62,13 +62,6 @@ personal-website/
 2. Open `index.html` in your preferred web browser
 3. No build process required - it's vanilla HTML/CSS/JS
 
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
 ## 🎯 Performance
 
 - **Lighthouse Score**: 95+ across all metrics
