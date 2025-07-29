@@ -1,6 +1,6 @@
 # Ivan Vaccari - Professional Portfolio
 
-A modern, responsive portfolio website showcasing the professional experience, skills, and projects of Ivan Vaccari, AI Expert and Software Developer.
+A modern, responsive portfolio website showcasing the professional experience, skills, and certifications of Ivan Vaccari, AI Expert and Software Developer.
 
 ## 🚀 Features
 
@@ -22,31 +22,39 @@ A modern, responsive portfolio website showcasing the professional experience, s
 ## 📁 Project Structure
 
 ```
-html-portfolio/
+personal-website/
 ├── assets/
 │   ├── css/
 │   │   └── main.css          # Main stylesheet
 │   ├── js/
 │   │   └── main.js           # Main JavaScript file
 │   └── images/
-│       └── ivan-vaccari-profile.jpg
+│       ├── favicon.ico       # Favicon icons
+│       ├── favicon-16x16.png
+│       ├── favicon-32x32.png
+│       ├── apple-touch-icon.png
+│       └── ivan-vaccari-profile.jpeg
 ├── docs/
 │   └── README.md             # Documentation
 ├── index.html                # Homepage
-├── details.html              # Skills & Projects page
+├── experience.html           # Experience & Education page
+├── details.html              # Skills & Certifications page
+├── manifest.json             # PWA manifest file
 ├── robots.txt                # Search engine crawling instructions
 ├── sitemap.xml               # Site structure for search engines
+├── CHANGELOG.md              # Project changelog
 └── README.md                 # This file
 ```
 
 ## 🎨 Design Features
 
 - **Dark Theme**: Modern dark color scheme with blue accents
-- **Typography**: Professional font pairing for excellent readability
+- **Typography**: Professional font pairing with Clash Grotesk and Satoshi for excellent readability
 - **Interactive Elements**: Hover effects and smooth transitions
 - **Timeline Design**: Professional experience timeline with alternating layout
-- **Card Components**: Organized skill and project cards
+- **Card Components**: Organized skill and certification cards
 - **Responsive Navigation**: Sticky header with smooth scrolling
+- **Dark/Light Mode Toggle**: Dynamic theme switching for user preference
 
 ## 🔧 Setup & Installation
 
