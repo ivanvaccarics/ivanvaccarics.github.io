@@ -24,13 +24,24 @@
 /* =============================================== */
 
 :root {
-    /* Colors */
+    /* Dark Theme Colors (Default) */
     --color-background: #111827; /* Deep Space */
     --color-surface: #1F2937;    /* Slate */
     --color-text-primary: #F9FAFB; /* Ghost White */
     --color-text-heading: #FFFFFF; /* Pure White */
     --color-accent: #3B82F6;       /* Electric Blue */
     --color-border: #4B5563;       /* Mid Grey */
+    
+    /* Light Theme Colors (will be applied via JS) */
+    --color-background-light: #F9FAFB; /* Light Ghost White */
+    --color-surface-light: #FFFFFF;    /* Pure White */
+    --color-text-primary-light: #1F2937; /* Slate */
+    --color-text-heading-light: #111827; /* Deep Space */
+    --color-accent-light: #2563EB;       /* Royal Blue */
+    --color-border-light: #D1D5DB;       /* Light Grey */
+
+    /* Theme Switch Transition */
+    --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
     /* Typography */
     --font-heading: 'Clash Grotesk', sans-serif;
@@ -109,6 +120,12 @@ ul { list-style: none; }
     border-bottom: 1px solid var(--color-border);
 }
 
+/* Light theme header adjustment */
+body.light-theme .site-header {
+    background-color: rgba(249, 250, 251, 0.8);
+    border-bottom: 1px solid var(--color-border);
+}
+
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -121,6 +138,9 @@ ul { list-style: none; }
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--color-text-heading);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .main-nav ul {
@@ -137,6 +157,156 @@ ul { list-style: none; }
 
 .main-nav a.active,.main-nav a:hover {
     color: var(--color-accent);
+}
+
+/* Improve navigation contrast in light theme */
+body.light-theme .main-nav a {
+    color: #1F2937; /* Ensure dark text on light header */
+}
+
+body.light-theme .main-nav a.active,
+body.light-theme .main-nav a:hover {
+    color: var(--color-accent);
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs);
+    margin-left: var(--spacing-sm);
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body.light-theme .theme-toggle {
+    color: #1F2937; /* Ensure dark icon in light theme */
+    background-color: rgba(240, 246, 255, 0.8);
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Mobile menu styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: var(--color-text-primary);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Ensure hamburger menu is visible in light theme */
+body.light-theme .hamburger-menu span {
+    background-color: #1F2937;
+}
+
+.mobile-menu-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: var(--color-surface);
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 5rem var(--spacing-md) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-theme .mobile-menu-container {
+    box-shadow: -4px 0 10px rgba(37, 99, 235, 0.1);
+}
+
+.mobile-menu-container.open {
+    right: 0;
+}
+
+.mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.mobile-nav-list a {
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav-list a.active,
+.mobile-nav-list a:hover {
+    color: var(--color-accent);
+}
+
+.mobile-menu-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-theme-toggle {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    gap: var(--spacing-sm);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
 }
 
 /* ------------------- */
@@ -252,6 +422,11 @@ ul { list-style: none; }
     background-color: var(--color-border); /* Using CSS variable */
 }
 
+/* Improve timeline visibility in light theme */
+body.light-theme .timeline::before {
+    background-color: rgba(37, 99, 235, 0.3);
+}
+
 .timeline-item {
     position: relative;
     width: 50%;
@@ -301,6 +476,14 @@ ul { list-style: none; }
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
+/* Light theme box shadows enhancement */
+body.light-theme .timeline-content,
+body.light-theme .education-item,
+body.light-theme .project-card {
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(200, 219, 255, 0.8);
+}
+
 .timeline-content::before, .education-item::before, .project-card::before {
     content: "";
     position: absolute;
@@ -331,6 +514,13 @@ ul { list-style: none; }
     font-style: italic;
     color: #9CA3AF; /* A lighter grey for meta text */
     margin-bottom: var(--spacing-sm);
+}
+
+/* Improve meta text contrast in light theme */
+body.light-theme .timeline-meta,
+body.light-theme .education-meta,
+body.light-theme .project-card .issuer {
+    color: #4B5563;
 }
 .timeline-content ul {
     list-style-type: disc;
@@ -371,6 +561,13 @@ ul { list-style: none; }
     color: var(--color-text-heading);
     border-color: var(--color-accent);
     transform: translateY(-2px);
+}
+
+/* Improve skill tags in light theme */
+body.light-theme .skills-grid span {
+    background-color: rgba(230, 242, 255, 0.8);
+    border: 1px solid rgba(180, 209, 255, 0.6);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.08);
 }
 
 /* Education Section */
@@ -426,6 +623,46 @@ ul { list-style: none; }
     font-size: 0.875rem;
 }
 
+.certification-link {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-text-heading);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.certification-link:hover {
+    background-color: #1D4ED8; /* Darker accent color */
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* Styling for certification details */
+.project-card p {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Style for credential IDs and dates */
+.project-card p br + strong,
+.project-card p strong {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* Company name styling */
+.project-card .issuer {
+    color: #9CA3AF;
+    font-style: italic;
+    margin-top: 0.25rem;
+    display: block;
+}
+
 hr.section-divider {
     border: 0;
     height: 1px;
@@ -459,7 +696,7 @@ hr.section-divider {
 
 .site-footer {
     background-color: var(--color-surface);
-    padding: var(--spacing-lg) 0;
+    padding: calc(var(--spacing-xs) * 1.5) 0;
     border-top: 1px solid var(--color-border);
     margin-top: var(--spacing-xl);
 }
@@ -468,6 +705,13 @@ hr.section-divider {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.footer-content p {
+    margin: 0;
 }
 
 .social-links-footer {
@@ -477,14 +721,14 @@ hr.section-divider {
 
 .social-links-footer a {
     color: var(--color-text-primary);
-    font-size: 1.5rem;
-    margin: 0 10px;
+    font-size: 1.25rem;
+    margin: 0 8px;
     transition: color 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background-color: var(--color-surface);
 }
@@ -539,7 +783,15 @@ hr.section-divider {
     h2 { font-size: 2rem; }
 
     .main-nav ul { 
-        display: none; /* Simple hide for mobile, can be replaced with a hamburger menu */
+        display: none; /* Hide desktop nav */
+    }
+    
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu */
+    }
+    
+    .overlay.open {
+        display: block;
     }
     
     .skills-container,
@@ -598,6 +850,22 @@ hr.section-divider {
         --color-text-primary: #FFFFFF;
         --color-accent: #00BFFF;
     }
+}
+
+/* Light theme class */
+body.light-theme {
+    --color-background: var(--color-background-light);
+    --color-surface: rgba(240, 246, 255, 1); /* Leggera sfumatura azzurra invece del bianco puro */
+    --color-text-primary: var(--color-text-primary-light);
+    --color-text-heading: var(--color-text-heading-light);
+    --color-accent: var(--color-accent-light);
+    --color-border: rgba(200, 219, 255, 0.8); /* Bordo azzurro più visibile */
+}
+
+/* Apply transitions to elements that change with theme */
+body, .site-header, .timeline-content, .education-item, .project-card, 
+.skills-grid span, .social-links a, .button, .site-footer {
+    transition: var(--theme-transition);
 }
 
 /* Reduced motion support */

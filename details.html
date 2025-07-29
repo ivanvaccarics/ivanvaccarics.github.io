@@ -36,15 +36,47 @@
     <header class="site-header" role="banner">
         <div class="container">
             <nav class="main-nav">
-                <a href="index.html" class="nav-logo">Ivan Vaccari</a>
+                <a href="index.html" class="nav-logo">
+                    Ivan Vaccari
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </a>
                 <ul>
                     <li><a href="index.html#about">About me</a></li>
                     <li><a href="experience.html">Experience & Education</a></li>
                     <li><a href="details.html">Skills & Certifications</a></li>
                 </ul>
+                <button class="hamburger-menu" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
         </div>
     </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <div>Ivan Vaccari</div>
+            <button class="close-menu" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html#about">About me</a></li>
+            <li><a href="experience.html">Experience & Education</a></li>
+            <li><a href="details.html">Skills & Certifications</a></li>
+        </ul>
+        <div class="mobile-theme-toggle">
+            <i class="fas fa-moon theme-icon"></i>
+            <span class="theme-text">Switch to Light Mode</span>
+        </div>
+    </div>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay"></div>
 
     <main id="main-content" role="main">
         <section id="skills" class="content-section">
@@ -106,39 +138,83 @@
                 </div>
             </div>
         </section>
+        
+        <section id="awards" class="content-section">
+            <div class="container">
+                <h2>🏆 Awards & Recognition</h2>
+                <div class="education-item">
+                    <h3>G.B. Ferrari Thesis Award</h3>
+                    <p class="education-meta">Awarded by ABB · November 2017</p>
+                    <p>Category: "Digitalization through the Internet of Things in the Energy Generation Industry"</p>
+                </div>
+            </div>
+        </section>
 
         <hr class="section-divider">
 
-        <section id="projects" class="content-section">
+        <section id="certifications" class="content-section">
             <div class="container">
-                <h2>🚀 Featured Projects</h2>
+                <h2>🎓 Certifications</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <h3>Enterprise RAG System</h3>
-                        <p>Developed a Retrieval-Augmented Generation system for corporate document processing using Azure OpenAI and custom vector search.</p>
-                        <div class="project-tags">
-                            <span>Azure</span>
-                            <span>LangChain</span>
-                            <span>Python</span>
-                        </div>
+                        <h3>Microsoft Certified: Azure AI Engineer Associate</h3>
+                        <p>Microsoft certification for professionals who implement and manage AI solutions on Azure.<br>Issued: June 2024 · Expires: June 2025<br>Credential ID: EE0B9A5DCD381BFF</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
                     </div>
                     <div class="project-card">
-                        <h3>Agentic AI for Process Automation</h3>
-                        <p>Created an autonomous agent system for automating complex business workflows with decision-making capabilities.</p>
-                        <div class="project-tags">
-                            <span>LangGraph</span>
-                            <span>Function Calling</span>
-                            <span>LLMs</span>
-                        </div>
+                        <h3>Microsoft Certified: Azure Developer Associate</h3>
+                        <p>Certification for developing solutions that use Azure compute solutions, storage, security, and Azure services.<br>Issued: August 2022 · Expires: August 2026<br>Credential ID: 254CD1F4B3E0FB00</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
                     </div>
                     <div class="project-card">
-                        <h3>IoT Security Framework</h3>
-                        <p>Designed and implemented a comprehensive security framework for industrial IoT systems with real-time threat detection.</p>
-                        <div class="project-tags">
-                            <span>IoT</span>
-                            <span>Cybersecurity</span>
-                            <span>Python</span>
-                        </div>
+                        <h3>Microsoft Certified: Power Platform Fundamentals</h3>
+                        <p>Foundational understanding of the capabilities of Microsoft Power Platform.<br>Issued: April 2023<br>Skills: Cloud Applications · Data Engineering</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/power-platform-fundamentals/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Microsoft Certified: Security, Compliance, and Identity Fundamentals</h3>
+                        <p>Foundational knowledge of security, compliance, and identity across cloud-based and related Microsoft services.<br>Issued: April 2023<br>Skills: Cloud Applications · Data Engineering</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Microsoft Certified: Azure Data Fundamentals</h3>
+                        <p>Foundational knowledge of core data concepts and how they are implemented using Microsoft Azure data services.<br>Issued: April 2022<br>Skills: Cloud Applications · Data Engineering · Databases · Software Design</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Microsoft Certified: Azure AI Fundamentals</h3>
+                        <p>Foundational knowledge of machine learning and artificial intelligence concepts and related Microsoft Azure services.<br>Issued: February 2022<br>Skills: Cloud Applications · Data Engineering · Software Design</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Microsoft Certified: Azure Fundamentals</h3>
+                        <p>Foundational knowledge of cloud services and how those services are provided with Microsoft Azure.<br>Issued: February 2022<br>Skills: Cloud Applications · REST · Data Engineering · Software Design</p>
+                        <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>eLearnSecurity Web Application Penetration Tester</h3>
+                        <p>Certification for web application security testing and vulnerability assessment.<br>Issued: May 2020<br>Credential ID: eWPT-6857335</p>
+                        <a href="https://elearnsecurity.com/product/ewpt-certification/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>CISSP Security</h3>
+                        <p>Internationally recognized certification for information security professionals.<br>Issued: August 2019<br>Charles Sturt University</p>
+                        <a href="https://www.isc2.org/Certifications/CISSP" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>IBM Blockchain Foundation Developer</h3>
+                        <p>Certification for developing applications using blockchain technology and IBM Blockchain Platform.<br>Issued: December 2017</p>
+                        <a href="https://www.ibm.com/training/badge/ibm-blockchain-foundation-developer-v2" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>IBM Blockchain Essentials</h3>
+                        <p>Foundational knowledge of blockchain technology, its business applications and use cases.<br>Issued: January 2018</p>
+                        <a href="https://www.ibm.com/training/badge/ibm-blockchain-essentials-v2" class="certification-link" target="_blank" rel="noopener">View Certification</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>eLearnSecurity Junior Penetration Tester</h3>
+                        <p>Certification focused on practical penetration testing skills and methodologies.<br>Issued: December 2017<br>Credential ID: EJPT-200663</p>
+                        <a href="https://elearnsecurity.com/product/ejpt-certification/" class="certification-link" target="_blank" rel="noopener">View Certification</a>
                     </div>
                 </div>
             </div>
@@ -150,11 +226,7 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2025 Ivan Vaccari. All Rights Reserved.</p>
-                <div class="social-links-footer">
-                   <a href="https://www.linkedin.com/in/ivanvaccari/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                   <a href="https://github.com/ivanvaccarics" target="_blank" rel="noopener noreferrer">GitHub</a>
-                   <a href="https://scholar.google.it/citations?user=O09fwToAAAAJ&hl=it" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                </div>
+                <p>Designed with ❤️ by Ivan Vaccari</p>
             </div>
         </div>
     </footer>

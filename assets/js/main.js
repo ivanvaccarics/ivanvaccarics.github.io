@@ -68,6 +68,8 @@
             this.setupSectionReveals();
             this.setupTypingAnimation();
             this.setupErrorHandling();
+            this.setupThemeToggle();
+            this.setupMobileMenu();
         }
 
         /**
@@ -237,6 +239,125 @@
                 console.error('Unhandled Promise Rejection:', event.reason);
                 // Could send to analytics service here
             });
+        }
+
+        /**
+         * Setup theme toggle functionality
+         */
+        setupThemeToggle() {
+            const themeToggleBtn = utils.safeQuerySelector('#theme-toggle');
+            const mobileThemeToggle = utils.safeQuerySelector('.mobile-theme-toggle');
+            
+            if (themeToggleBtn) {
+                // Check for saved theme preference or respect OS preference
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const savedTheme = localStorage.getItem('theme');
+                
+                // Apply theme based on saved preference or OS preference
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-theme');
+                    this.updateThemeIcons(true);
+                } else if (savedTheme === 'dark' || prefersDarkScheme) {
+                    document.body.classList.remove('light-theme');
+                    this.updateThemeIcons(false);
+                }
+                
+                // Add event listener to theme toggle button
+                themeToggleBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    const isLightTheme = document.body.classList.contains('light-theme');
+                    
+                    // Save preference to localStorage
+                    localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+                    
+                    // Update icons and text
+                    this.updateThemeIcons(isLightTheme);
+                });
+            }
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    const isLightTheme = document.body.classList.contains('light-theme');
+                    
+                    // Save preference to localStorage
+                    localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+                    
+                    // Update icons and text
+                    this.updateThemeIcons(isLightTheme);
+                });
+            }
+        }
+        
+        /**
+         * Update theme icons and text based on current theme
+         * @param {boolean} isLightTheme - Whether the theme is currently light
+         */
+        updateThemeIcons(isLightTheme) {
+            const themeIcon = utils.safeQuerySelector('#theme-toggle i');
+            const mobileThemeIcon = utils.safeQuerySelector('.mobile-theme-toggle i');
+            const mobileThemeText = utils.safeQuerySelector('.mobile-theme-toggle .theme-text');
+            
+            if (themeIcon) {
+                themeIcon.className = isLightTheme ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            
+            if (mobileThemeIcon) {
+                mobileThemeIcon.className = isLightTheme ? 'fas fa-sun theme-icon' : 'fas fa-moon theme-icon';
+            }
+            
+            if (mobileThemeText) {
+                mobileThemeText.textContent = isLightTheme ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+            }
+        }
+        
+        /**
+         * Setup mobile menu functionality
+         */
+        setupMobileMenu() {
+            const hamburgerMenu = utils.safeQuerySelector('.hamburger-menu');
+            const mobileMenuContainer = utils.safeQuerySelector('.mobile-menu-container');
+            const closeMenuButton = utils.safeQuerySelector('.close-menu');
+            const overlay = utils.safeQuerySelector('.overlay');
+            const mobileNavLinks = utils.safeQuerySelectorAll('.mobile-nav-list a');
+            
+            if (!hamburgerMenu || !mobileMenuContainer || !closeMenuButton || !overlay) return;
+            
+            // Open menu when hamburger is clicked
+            hamburgerMenu.addEventListener('click', () => {
+                mobileMenuContainer.classList.add('open');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+            
+            // Close menu when close button is clicked
+            closeMenuButton.addEventListener('click', this.closeMenu.bind(this));
+            
+            // Close menu when overlay is clicked
+            overlay.addEventListener('click', this.closeMenu.bind(this));
+            
+            // Close menu when a nav link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', this.closeMenu.bind(this));
+            });
+        }
+        
+        /**
+         * Close the mobile menu
+         */
+        closeMenu() {
+            const mobileMenuContainer = utils.safeQuerySelector('.mobile-menu-container');
+            const overlay = utils.safeQuerySelector('.overlay');
+            
+            if (mobileMenuContainer) {
+                mobileMenuContainer.classList.remove('open');
+            }
+            
+            if (overlay) {
+                overlay.classList.remove('open');
+            }
+            
+            document.body.style.overflow = ''; // Re-enable scrolling
         }
 
         /**
