@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-07-29
+
+### Added
+- Created `pages/` directory for better project organization
+- Enhanced README.md with updated project structure and setup instructions
+- Comprehensive documentation of the new file organization
+
+### Changed
+- **BREAKING**: Moved `experience.html` to `pages/experience.html`
+- **BREAKING**: Moved `details.html` to `pages/details.html`
+- Updated all navigation links across all pages to reflect new structure
+- Updated all asset references in moved pages (CSS, JS, images, manifest)
+- Updated Open Graph URLs to reflect new page locations
+- Enhanced project structure documentation in README.md
+- `index.html` remains as the entry point in the root directory
+
+### Technical Improvements
+- Cleaner root directory with only essential files
+- Better maintainability with logical page grouping
+- Preserved all SEO metadata and functionality
+- All relative paths correctly updated for new structure
+- GitHub Pages compatibility maintained
+
+### File Structure Changes
+```
+OLD:                    NEW:
+├── index.html          ├── index.html (unchanged)
+├── experience.html  →  ├── pages/
+├── details.html        │   ├── experience.html
+├── assets/             │   └── details.html
+└── ...                 ├── assets/ (unchanged)
+                        └── ... (unchanged)
+```
+
 ## [1.1.0] - 2025-07-29
 
 ### Added
@@ -79,10 +113,11 @@ OLD:                    NEW:
 
 ### Planned Features
 - Contact form with backend integration
-- Blog section for technical articles
+- Blog section for technical articles (likely in `pages/blog/`)
 - Advanced animations and micro-interactions
 - Integration with portfolio CMS
 - Performance monitoring and analytics
 - Advanced PWA features (offline support)
 - Multi-language support
 - Project showcase section with case studies
+- Additional pages in the organized `pages/` directory structure

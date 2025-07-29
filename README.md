@@ -1,5 +1,7 @@
 # Ivan Vaccari - Professional Portfolio
 
+> 🌟 **Hey there, fellow developer!** If you're about to fork this repo, how about giving it a star first? It's like saying "thanks" but with more sparkle! ✨ (Plus, it makes me do a little happy dance 💃)
+
 A modern, responsive portfolio website showcasing the professional experience, skills, and certifications of Ivan Vaccari, AI Expert and Software Developer.
 
 ## 🚀 Features
@@ -10,6 +12,8 @@ A modern, responsive portfolio website showcasing the professional experience, s
 - **SEO Friendly**: Proper meta tags and semantic HTML structure
 - **Accessibility**: WCAG compliant with proper ARIA labels
 - **Cross-browser Compatible**: Works across all modern browsers
+- **Organized Structure**: Clean file organization with dedicated pages directory
+- **PWA Ready**: Progressive Web App manifest for enhanced mobile experience
 
 ## 🛠️ Technologies Used
 
@@ -22,7 +26,7 @@ A modern, responsive portfolio website showcasing the professional experience, s
 ## 📁 Project Structure
 
 ```
-personal-website/
+ivanvaccarics.github.io/
 ├── assets/
 │   ├── css/
 │   │   └── main.css          # Main stylesheet
@@ -33,16 +37,20 @@ personal-website/
 │       ├── favicon-16x16.png
 │       ├── favicon-32x32.png
 │       ├── apple-touch-icon.png
+│       ├── android-chrome-192x192.png
+│       ├── android-chrome-512x512.png
+│       ├── site.webmanifest
+│       ├── wave.gif          # Animated wave emoji
 │       └── ivan-vaccari-profile.jpeg
-├── docs/
-│   └── README.md             # Documentation
-├── index.html                # Homepage
-├── experience.html           # Experience & Education page
-├── details.html              # Skills & Certifications page
+├── pages/                    # Organized page directory
+│   ├── experience.html       # Experience & Education page
+│   └── details.html          # Skills & Certifications page
+├── index.html                # Homepage (entry point)
 ├── manifest.json             # PWA manifest file
 ├── robots.txt                # Search engine crawling instructions
 ├── sitemap.xml               # Site structure for search engines
 ├── CHANGELOG.md              # Project changelog
+├── LICENSE                   # MIT License
 └── README.md                 # This file
 ```
 
@@ -59,8 +67,15 @@ personal-website/
 ## 🔧 Setup & Installation
 
 1. Clone or download the repository
+   ```bash
+   git clone https://github.com/ivanvaccarics/ivanvaccarics.github.io.git
+   ```
 2. Open `index.html` in your preferred web browser
 3. No build process required - it's vanilla HTML/CSS/JS
+4. Navigate between pages using the organized structure:
+   - Homepage: `index.html`
+   - Experience: `pages/experience.html`
+   - Skills: `pages/details.html`
 
 ## 🎯 Performance
 
