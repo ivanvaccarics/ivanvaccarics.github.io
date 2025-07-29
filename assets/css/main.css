@@ -898,6 +898,14 @@ body, .site-header, .timeline-content, .education-item, .project-card,
 /* 7. Utility Classes */
 /* =============================================== */
 
+/* Wave GIF */
+.wave-gif {
+    width: 45px;
+    height: 45px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 /* Text utilities */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
