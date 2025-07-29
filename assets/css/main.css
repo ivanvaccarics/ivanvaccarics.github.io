@@ -138,9 +138,11 @@ body.light-theme .site-header {
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--color-text-heading);
+}
+
+.nav-right {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
 }
 
 .main-nav ul {
@@ -180,10 +182,10 @@ body.light-theme .main-nav a:hover {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-xs);
-    margin-left: var(--spacing-sm);
     border-radius: 50%;
     background-color: var(--color-surface);
     transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-left: var(--spacing-md);
 }
 
 body.light-theme .theme-toggle {
@@ -343,6 +345,10 @@ body.light-theme .mobile-menu-container {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
+}
+
+.social-links-centered {
+    justify-content: center;
 }
 
 .social-links a {
@@ -598,6 +604,9 @@ body.light-theme .skills-grid span {
     border: 1px solid var(--color-border);
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Ensure all cards have a minimum height */
 }
 
 .project-card:hover {
@@ -624,14 +633,18 @@ body.light-theme .skills-grid span {
 }
 
 .certification-link {
-    display: inline-block;
-    margin-top: var(--spacing-sm);
+    display: block;
+    margin-top: auto;
     padding: 0.5rem 1rem;
     background-color: var(--color-accent);
     color: var(--color-text-heading);
     border-radius: var(--border-radius);
     font-weight: 500;
     transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .certification-link:hover {
@@ -643,7 +656,7 @@ body.light-theme .skills-grid span {
 /* Styling for certification details */
 .project-card p {
     color: var(--color-text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     font-size: 0.95rem;
     line-height: 1.5;
 }

@@ -263,7 +263,11 @@
                 }
                 
                 // Add event listener to theme toggle button
-                themeToggleBtn.addEventListener('click', () => {
+                themeToggleBtn.addEventListener('click', (event) => {
+                    // Prevent navigation to home when clicked
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
                     document.body.classList.toggle('light-theme');
                     const isLightTheme = document.body.classList.contains('light-theme');
                     
@@ -276,7 +280,11 @@
             }
             
             if (mobileThemeToggle) {
-                mobileThemeToggle.addEventListener('click', () => {
+                mobileThemeToggle.addEventListener('click', (event) => {
+                    // Prevent navigation when clicked
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
                     document.body.classList.toggle('light-theme');
                     const isLightTheme = document.body.classList.contains('light-theme');
                     
