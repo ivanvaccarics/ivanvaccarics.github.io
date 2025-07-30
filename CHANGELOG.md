@@ -5,6 +5,56 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-07-30
+
+### Added
+- **Component-based architecture**: Implemented modular header and footer components
+- `components/` directory with reusable HTML components:
+  - `header.html`: Dynamic navigation header with mobile menu
+  - `footer.html`: Standardized footer across all pages
+  - `head-common.html`: Common meta tags and resources (for future use)
+- Dynamic component loading via JavaScript fetch API
+- Intelligent path detection for proper asset and navigation links
+- Centralized navigation management with automatic link generation
+
+### Changed
+- **BREAKING**: Refactored all pages to use dynamic component loading
+- Enhanced JavaScript architecture with async component initialization
+- Improved `main.js` with component loading capabilities:
+  - Added `loadComponents()` and `loadComponent()` methods
+  - Implemented `setupNavigation()` for dynamic link generation
+  - Enhanced path detection with `getBasePath()` method
+- Updated all HTML pages to use placeholder divs for header and footer
+- Streamlined HTML structure by removing duplicate header/footer code
+
+### Technical Improvements
+- **DRY principle**: Eliminated code duplication across pages
+- **Maintainability**: Single source of truth for header and footer
+- **Consistency**: Guaranteed uniform navigation and footer across all pages
+- **Performance**: Parallel loading of components with Promise.all()
+- **Error handling**: Comprehensive error handling for component loading
+- **Future-ready**: Scalable architecture for additional components
+
+### Developer Experience
+- Simplified page maintenance (edit once, update everywhere)
+- Easy navigation updates through single configuration
+- Better code organization and separation of concerns
+- Reduced HTML file sizes and complexity
+
+### File Structure Changes
+```
+NEW in this release:
+├── components/
+│   ├── header.html      (Dynamic navigation header)
+│   ├── footer.html      (Standardized footer)
+│   └── head-common.html (Common meta tags - future use)
+├── assets/js/main.js    (Enhanced with component loading)
+├── index.html           (Refactored to use components)
+└── pages/
+    ├── experience.html  (Refactored to use components)
+    └── details.html     (Refactored to use components)
+```
+
 ## [1.2.0] - 2025-07-29
 
 ### Added

@@ -56,13 +56,27 @@
     class PortfolioApp {
         constructor() {
             this.observers = new Map();
+            this.basePath = this.getBasePath();
             this.init();
+        }
+
+        /**
+         * Get the base path for the current page
+         * @returns {string} Base path for components and assets
+         */
+        getBasePath() {
+            const path = window.location.pathname;
+            if (path.includes('/pages/')) {
+                return '../';
+            }
+            return './';
         }
 
         /**
          * Initialize the application
          */
-        init() {
+        async init() {
+            await this.loadComponents();
             this.setupSmoothScrolling();
             this.setupActiveNavigation();
             this.setupSectionReveals();
@@ -70,6 +84,80 @@
             this.setupErrorHandling();
             this.setupThemeToggle();
             this.setupMobileMenu();
+        }
+
+        /**
+         * Load header and footer components
+         */
+        async loadComponents() {
+            try {
+                await Promise.all([
+                    this.loadComponent('header', '#header-placeholder'),
+                    this.loadComponent('footer', '#footer-placeholder')
+                ]);
+                this.setupNavigation();
+            } catch (error) {
+                console.error('Error loading components:', error);
+            }
+        }
+
+        /**
+         * Load a single component
+         * @param {string} componentName - Name of the component
+         * @param {string} targetSelector - Target element selector
+         */
+        async loadComponent(componentName, targetSelector) {
+            try {
+                const response = await fetch(`${this.basePath}components/${componentName}.html`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${componentName}: ${response.statusText}`);
+                }
+                
+                const html = await response.text();
+                const targetElement = utils.safeQuerySelector(targetSelector);
+                
+                if (targetElement) {
+                    targetElement.innerHTML = html;
+                } else {
+                    console.warn(`Target element ${targetSelector} not found`);
+                }
+            } catch (error) {
+                console.error(`Error loading ${componentName}:`, error);
+            }
+        }
+
+        /**
+         * Setup navigation links based on current page
+         */
+        setupNavigation() {
+            const navList = utils.safeQuerySelector('#main-nav-list');
+            const mobileNavList = utils.safeQuerySelector('#mobile-nav-list');
+            const logoLink = utils.safeQuerySelector('#nav-logo-link');
+            
+            // Navigation items configuration
+            const navItems = [
+                { text: 'About me', href: this.basePath === '../' ? '../index.html#about' : '#about' },
+                { text: 'Experience & Education', href: this.basePath === '../' ? 'experience.html' : 'pages/experience.html' },
+                { text: 'Skills & Certifications', href: this.basePath === '../' ? 'details.html' : 'pages/details.html' }
+            ];
+
+            // Set logo link
+            if (logoLink) {
+                logoLink.href = this.basePath === '../' ? '../index.html' : '#hero';
+            }
+
+            // Populate navigation lists
+            if (navList) {
+                navList.innerHTML = navItems.map(item => 
+                    `<li><a href="${item.href}">${item.text}</a></li>`
+                ).join('');
+            }
+
+            if (mobileNavList) {
+                mobileNavList.innerHTML = navItems.map(item => 
+                    `<li><a href="${item.href}">${item.text}</a></li>`
+                ).join('');
+            }
         }
 
         /**
