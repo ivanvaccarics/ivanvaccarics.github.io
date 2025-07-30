@@ -708,8 +708,8 @@ hr.section-divider {
 /* ------------------- */
 
 .site-footer {
-    background-color: var(--color-surface);
-    padding: calc(var(--spacing-xs) * 1.5) 0;
+    background-color: var(--color-background);
+    padding: var(--spacing-md) 0;
     border-top: 1px solid var(--color-border);
     margin-top: var(--spacing-xl);
 }
