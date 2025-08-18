@@ -11,12 +11,13 @@ A modern, responsive portfolio website showcasing the professional experience, s
 - **Component-based Architecture**: Modular HTML components for better maintainability
 - **Dynamic Content Loading**: JavaScript-powered component system for DRY principles
 - **Performance Optimized**: Fast loading times with optimized assets and parallel component loading
-- **SEO Friendly**: Proper meta tags and semantic HTML structure
+- **SEO Friendly**: Canonicals, absolute OG/Twitter images, JSON-LD (Person, WebSite, Breadcrumbs), sitemap/robots
 - **Accessibility**: WCAG compliant with proper ARIA labels
 - **Cross-browser Compatible**: Works across all modern browsers
 - **Organized Structure**: Clean file organization with dedicated pages and components directories
 - **PWA Ready**: Progressive Web App manifest for enhanced mobile experience
 - **Theme Toggle**: Dynamic dark/light mode switching with localStorage persistence
+- **Accessible Navigation**: Noscript fallback for links (works without JS)
 
 ## 🛠️ Technologies Used
 
@@ -73,6 +74,7 @@ ivanvaccarics.github.io/
 - **Dynamic Theme Toggle**: Dark/light mode switching with localStorage persistence
 - **Component-based UI**: Modular header and footer components loaded dynamically
 - **Mobile-first Design**: Optimized mobile menu and responsive layouts
+ - **Footer**: Social links (LinkedIn, GitHub, Scholar) and dynamic year
 
 ## 🏗️ Architecture
 
@@ -125,13 +127,25 @@ Due to the dynamic component loading system, the portfolio **requires a web serv
 
 - **Lighthouse Score**: 95+ across all metrics
 - **Optimized Images**: Compressed and properly sized images
+   - LCP image preloaded; width/height attributes set to avoid CLS
 - **Minimal Dependencies**: Only external fonts and Font Awesome icons
 - **Component Caching**: Efficient component loading with browser caching
 - **Parallel Loading**: Components loaded concurrently for faster initialization
 - **Clean Code**: Well-structured, commented, and maintainable
 - **Mobile Optimized**: Fast loading and smooth interactions on mobile devices
 
-## 🚀 Recent Updates (v1.3.0)
+## 🚀 Recent Updates (v1.4.0)
+
+### SEO & Footer Refresh
+- Canonical links and robots meta across pages
+- Absolute OG/Twitter images; `og:site_name`, `og:locale`, `og:image:alt`
+- JSON-LD: Person (home), WebSite (home), BreadcrumbList (subpages)
+- `sitemap.xml` paths corrected and dates updated
+- `manifest.json` icons aligned to existing assets
+- Noscript nav fallback; preconnects; LCP preload; improved image attributes
+- Footer: social links + dynamic current year + quick links to sitemap/robots
+
+## Previous Updates (v1.3.0)
 
 ### Component Architecture Implementation
 - ✅ **Modular Components**: Extracted header and footer into reusable components

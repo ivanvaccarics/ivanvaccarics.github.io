@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-08-18
+
+### Added
+- SEO improvements for GitHub Pages hosting:
+  - Canonical links and robots meta across pages
+  - Absolute Open Graph/Twitter images and `og:site_name`, `og:locale`, `og:image:alt`
+  - WebSite JSON-LD on homepage and BreadcrumbList JSON-LD on subpages
+  - Noscript navigation fallback to ensure crawlability without JavaScript
+  - Preconnect hints and preload for LCP image on homepage
+- Footer enhancements:
+  - Social links area (LinkedIn, GitHub, Google Scholar)
+  - Dynamic current year (auto-updates)
+  - Quick links to `sitemap.xml` and `robots.txt`
+
+### Changed
+- `sitemap.xml` now references `pages/experience.html` and `pages/details.html` and updated `lastmod`
+- `manifest.json` icons corrected to existing `android-chrome-192x192.png` and `android-chrome-512x512.png`
+- Improved image attributes for LCP (width/height, decoding)
+
+### Fixed
+- Ensured social sharing uses absolute URLs for preview images
+
 ## [1.3.0] - 2025-07-30
 
 ### Added

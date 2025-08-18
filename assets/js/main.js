@@ -84,6 +84,7 @@
             this.setupErrorHandling();
             this.setupThemeToggle();
             this.setupMobileMenu();
+            this.updateFooterYear();
         }
 
         /**
@@ -464,6 +465,17 @@
                 observer.disconnect();
             });
             this.observers.clear();
+        }
+
+        /**
+         * Update footer year dynamically
+         */
+        updateFooterYear() {
+            const yearEl = utils.safeQuerySelector('#current-year');
+            if (yearEl) {
+                const now = new Date();
+                yearEl.textContent = String(now.getFullYear());
+            }
         }
     }
 
