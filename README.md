@@ -12,6 +12,7 @@ A modern, responsive portfolio website showcasing the professional experience, s
 - **Dynamic Content Loading**: JavaScript-powered component system for DRY principles
 - **Performance Optimized**: Fast loading times with optimized assets and parallel component loading
 - **SEO Friendly**: Canonicals, absolute OG/Twitter images, JSON-LD (Person, WebSite, Breadcrumbs), sitemap/robots
+   - Includes `og:image:width`, `og:image:height`, and `twitter:image:alt` for robust social previews
 - **Accessibility**: WCAG compliant with proper ARIA labels
 - **Cross-browser Compatible**: Works across all modern browsers
 - **Organized Structure**: Clean file organization with dedicated pages and components directories
@@ -50,7 +51,9 @@ ivanvaccarics.github.io/
 │       ├── android-chrome-512x512.png
 │       ├── site.webmanifest
 │       ├── wave.gif          # Animated wave emoji
-│       └── ivan-vaccari-profile.jpeg
+│       ├── ivan-vaccari-profile.jpeg
+│       ├── ivan-vaccari-profile.webp   # WebP version for <picture>
+│       └── og-ivan-vaccari-1200x630.jpg # OG/Twitter sharing image (1200x630)
 ├── pages/                    # Organized page directory
 │   ├── experience.html       # Experience & Education page
 │   └── details.html          # Skills & Certifications page
@@ -68,6 +71,7 @@ ivanvaccarics.github.io/
 - **Dark Theme**: Modern dark color scheme with blue accents
 - **Typography**: Professional font pairing with Clash Grotesk and Satoshi for excellent readability
 - **Interactive Elements**: Hover effects and smooth transitions
+ 
 - **Timeline Design**: Professional experience timeline with alternating layout
 - **Card Components**: Organized skill and certification cards
 - **Responsive Navigation**: Sticky header with smooth scrolling
@@ -75,42 +79,23 @@ ivanvaccarics.github.io/
 - **Component-based UI**: Modular header and footer components loaded dynamically
 - **Mobile-first Design**: Optimized mobile menu and responsive layouts
  - **Footer**: Social links (LinkedIn, GitHub, Scholar) and dynamic year
+ 
 
 ## 🏗️ Architecture
 
-### Component System
-The portfolio uses a custom component system for better maintainability:
-
-- **Dynamic Loading**: Components are loaded via fetch API on page initialization
-- **Path Intelligence**: Automatic path detection for proper asset and navigation links
-- **Error Handling**: Comprehensive error handling for component loading failures
-- **Performance**: Parallel component loading with Promise.all() for optimal speed
-- **Consistency**: Single source of truth for header/footer across all pages
-
-### JavaScript Architecture
-- **ES6+ Features**: Modern JavaScript with async/await and classes
+ - **Media Optimization**: Hero image with `<picture>` (WebP + JPEG fallback)
+ - **ContactPoint JSON-LD**: Preserved in structured data for findability
+ - **Micro-interactions**: Subtle hover/focus states and lift effects across interactive components
 - **Modular Design**: Clean separation of concerns with organized methods
 - **Event Handling**: Efficient event delegation and proper cleanup
 - **Theme Management**: Persistent theme switching with localStorage
-- **Navigation**: Dynamic navigation generation based on page context
-
-## 🔧 Setup & Installation
-
-1. Clone or download the repository
-   ```bash
    git clone https://github.com/ivanvaccarics/ivanvaccarics.github.io.git
    ```
 
 2. Serve the files through a web server (required for component loading):
    ```bash
    # Using Python (recommended for development)
-   python3 -m http.server 8000
-   
-   # Using Node.js (if you have it installed)
-   npx serve .
-   
-   # Using PHP (if available)
-   php -S localhost:8000
+ - Media & Contact: `<picture>` hero image (WebP + JPEG), Contact section + ContactPoint schema, OG/Twitter 1200×630
    ```
 
 3. Open your browser and navigate to `http://localhost:8000`

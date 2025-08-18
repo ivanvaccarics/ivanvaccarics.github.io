@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- head-common placeholder (will be replaced by JS) -->
+    <meta id="head-common-placeholder" data-insert="head-common" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="btJ730EXQ1Yush5e27mf57QVh6SixorKcA0rFor7tmA" />
@@ -33,6 +35,10 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Ivan Vaccari | AI Expert & Software Developer">
     <meta property="og:description" content="Personal portfolio of Ivan Vaccari, an AI Expert with a Ph.D. in Computer Science, specializing in Generative AI, IoT, and cybersecurity.">
+    <meta property="og:image" content="https://ivanvaccarics.github.io/assets/images/og-ivan-vaccari-1200x630.jpg">
+    <meta property="og:image:alt" content="Open Graph card featuring Ivan Vaccari's portrait and professional title">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image" content="https://ivanvaccarics.github.io/assets/images/ivan-vaccari-profile.jpeg">
     <meta property="og:url" content="https://ivanvaccarics.github.io/">
     <meta property="og:type" content="website">
@@ -43,10 +49,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ivan Vaccari | AI Expert & Software Developer">
     <meta name="twitter:description" content="Personal portfolio of Ivan Vaccari, an AI Expert with a Ph.D. in Computer Science, specializing in Generative AI, IoT, and cybersecurity.">
-    <meta name="twitter:image" content="https://ivanvaccarics.github.io/assets/images/ivan-vaccari-profile.jpeg">
+    <meta name="twitter:image" content="https://ivanvaccarics.github.io/assets/images/og-ivan-vaccari-1200x630.jpg">
+    <meta name="twitter:image:alt" content="Open Graph card featuring Ivan Vaccari's portrait and professional title">
     
     <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -60,6 +67,13 @@
         "https://github.com/ivanvaccarics",
         "https://scholar.google.it/citations?user=O09fwToAAAAJ&hl=it"
       ],
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "contactType": "business",
+                "email": "mailto:ivan.vaccari91@gmail.com",
+                "areaServed": "IT",
+                "availableLanguage": ["en", "it"]
+            }],
       "alumniOf": {
         "@type": "Organization",
         "name": "University of Genoa"
@@ -108,7 +122,10 @@
         <section id="hero" class="hero-section">
             <div class="container hero-container">
                 <div class="hero-image-container">
-                    <img src="assets/images/ivan-vaccari-profile.jpeg" alt="Portrait photo of Ivan Vaccari" class="hero-image" width="200" height="200" loading="eager" decoding="async">
+                    <picture>
+                        <source srcset="assets/images/ivan-vaccari-profile.webp" type="image/webp">
+                        <img src="assets/images/ivan-vaccari-profile.jpeg" alt="Portrait photo of Ivan Vaccari" class="hero-image" width="200" height="200" loading="eager" decoding="async">
+                    </picture>
                 </div>
                 <div class="hero-content">
                     <h1 class="hero-title">Ivan Vaccari</h1>
@@ -129,6 +146,8 @@
                 <p>With experience in research field, machine learning models, AI strategies, and enterprise systems, I drive innovation and future-proof solutions for organizations and open source projects. I'm fueled by a relentless passion for technology. For me, staying on the bleeding-edge isn't just a goal—it's a <strong>passion</strong>. I thrive on diving into the latest breakthroughs to unlock their true potential and improve digital solutions with groundbreaking <strong>innovation</strong>.</p>
             </div>
         </section>
+
+        
 
 
 

@@ -1,4 +1,35 @@
+## [1.5.1] - 2025-08-18
+
+### Removed
+- Contact section removed from homepage per request.
+
+### Changed
+- Navigation no longer includes a Contact link.
+- Removed contact-specific JS and CSS (copy-to-email, toast, card layout).
+
 # Changelog
+## [1.5.0] - 2025-08-18
+
+### Added
+- Revamped Contact section with modern, accessible design:
+  - Three contact cards (Email, LinkedIn, GitHub) with clear CTAs and context
+  - Copy-to-clipboard button for email with toast feedback and fallback
+  - ARIA roles/labels and improved keyboard navigation
+- Toast notification component with dark/light theme support
+- New button variants: `button-ghost` and `button-outline`
+
+### Changed
+- Site-wide UI polish for consistency and clarity:
+  - Introduced contact grid layout with responsive behavior
+  - Harmonized buttons and spacing within action areas
+  - Improved light-theme shadows/borders remain consistent in new components
+- Improved micro-interactions: hover lifts, enhanced focus states, subtle transitions
+
+### Technical
+- JS: `setupContactInteractions()` and `showToast()` added to `assets/js/main.js`
+- CSS: Contact card components and toast styles added to `assets/css/main.css`
+- HTML: Replaced simple list in `index.html#contact` with structured cards and actions
+
 
 All notable changes to this project will be documented in this file.
 
@@ -18,14 +49,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Social links area (LinkedIn, GitHub, Google Scholar)
   - Dynamic current year (auto-updates)
   - Quick links to `sitemap.xml` and `robots.txt`
+  
+- Media & Contact:
+  - Homepage hero image uses `<picture>` with WebP + JPEG fallback
+  - Contact section with email/links and ContactPoint schema in JSON-LD (email set to `ivan.vaccari91@gmail.com`)
+  - Branded OG/Twitter card generated at 1200×630 with background, circular portrait and title (`assets/images/og-ivan-vaccari-1200x630.jpg`)
 
 ### Changed
 - `sitemap.xml` now references `pages/experience.html` and `pages/details.html` and updated `lastmod`
 - `manifest.json` icons corrected to existing `android-chrome-192x192.png` and `android-chrome-512x512.png`
 - Improved image attributes for LCP (width/height, decoding)
+ - Centralized favicon/manifest links via `components/head-common.html` and a lightweight JS loader
 
 ### Fixed
 - Ensured social sharing uses absolute URLs for preview images
+ - Added `og:image:width`, `og:image:height`, and `twitter:image:alt` for better social preview compatibility
 
 ## [1.3.0] - 2025-07-30
 

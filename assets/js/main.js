@@ -76,6 +76,7 @@
          * Initialize the application
          */
         async init() {
+            await this.loadHeadCommon();
             await this.loadComponents();
             this.setupSmoothScrolling();
             this.setupActiveNavigation();
@@ -85,6 +86,26 @@
             this.setupThemeToggle();
             this.setupMobileMenu();
             this.updateFooterYear();
+        }
+
+        /**
+         * Load common head content if placeholder exists
+         */
+        async loadHeadCommon() {
+            const placeholder = document.getElementById('head-common-placeholder');
+            if (!placeholder) return;
+            try {
+                const res = await fetch(`${this.basePath}components/head-common.html`);
+                if (!res.ok) return;
+                let html = await res.text();
+                // Replace {baseHref} placeholders with correct base path
+                html = html.replaceAll('{baseHref}', this.basePath);
+                placeholder.insertAdjacentHTML('afterend', html);
+                // Remove placeholder comment element if any
+                placeholder.remove();
+            } catch (e) {
+                console.warn('Unable to load head-common:', e);
+            }
         }
 
         /**
@@ -265,6 +286,8 @@
 
             this.observers.set('reveal', revealObserver);
         }
+
+    // Contact section removed per request; related interactions eliminated
 
         /**
          * Setup typing animation for subtitle

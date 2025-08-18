@@ -1,0 +1,1 @@
+Every time you end a task, update the README.md and CHANGELOG.md files to reflect the changes made. This helps keep track of project history and provides clear documentation for users and contributors.
