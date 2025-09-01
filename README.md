@@ -89,21 +89,6 @@ ivanvaccarics.github.io/
 - **Modular Design**: Clean separation of concerns with organized methods
 - **Event Handling**: Efficient event delegation and proper cleanup
 - **Theme Management**: Persistent theme switching with localStorage
-   git clone https://github.com/ivanvaccarics/ivanvaccarics.github.io.git
-   ```
-
-2. Serve the files through a web server (required for component loading):
-   ```bash
-   # Using Python (recommended for development)
- - Media & Contact: `<picture>` hero image (WebP + JPEG), Contact section + ContactPoint schema, OG/Twitter 1200×630
-   ```
-
-3. Open your browser and navigate to `http://localhost:8000`
-
-4. Navigate between pages using the organized structure:
-   - Homepage: `index.html`
-   - Experience: `pages/experience.html`
-   - Skills: `pages/details.html`
 
 ### ⚠️ Important Note
 Due to the dynamic component loading system, the portfolio **requires a web server** to function properly. Opening `index.html` directly in a browser will result in CORS errors. Use one of the server methods above for development and testing.
@@ -161,3 +146,4 @@ For inquiries about this portfolio or collaboration opportunities:
 ---
 
 *Built with ❤️ using modern web technologies*
+
