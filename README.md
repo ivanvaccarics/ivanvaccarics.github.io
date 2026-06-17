@@ -26,7 +26,7 @@ A modern, responsive portfolio website showcasing the professional experience, s
 - **CSS3**: Modern CSS with custom properties and flexbox/grid layouts
 - **Vanilla JavaScript**: ES6+ with async/await, fetch API, and modular architecture
 - **Component System**: Custom component loading system with error handling
-- **Google Fonts**: Professional typography with Clash Grotesk and Satoshi fonts
+- **Google Fonts**: Professional typography — Zodiak (serif display), Satoshi (body), and IBM Plex Mono (data/labels)
 - **Font Awesome**: Icon library for social media and UI elements
 
 ## 📁 Project Structure
@@ -68,11 +68,13 @@ ivanvaccarics.github.io/
 
 ## 🎨 Design Features
 
-- **Dark Theme**: Modern dark color scheme with blue accents
-- **Typography**: Professional font pairing with Clash Grotesk and Satoshi for excellent readability
+- **"Graphite & Copper" identity**: An instrument-inspired palette (graphite ink, warm paper-white, copper signal accent, teal trace) drawn from Ivan's IoT / signal-processing roots — deliberately distinct from generic SaaS-blue portfolios
+- **Typography system**: Three deliberate roles — Zodiak serif display (scholarship), Satoshi body (clarity), IBM Plex Mono (data/labels)
+- **Signature signal trace**: An SVG waveform sweeps across the hero floor — chaotic experiment oscillations resolving into a clean rising curve (research → production); respects `prefers-reduced-motion`
+- **Hero as thesis**: A monospace metrics row (h-index, papers, EU projects, certifications) over a faint plotted grid, with a registration-framed portrait
 - **Interactive Elements**: Hover effects and smooth transitions
- 
-- **Timeline Design**: Professional experience timeline with alternating layout
+
+- **Timeline Design**: Single measured time-axis with square "sample-point" nodes and monospace metadata
 - **Card Components**: Organized skill and certification cards
 - **Responsive Navigation**: Sticky header with smooth scrolling
 - **Dynamic Theme Toggle**: Dark/light mode switching with localStorage persistence

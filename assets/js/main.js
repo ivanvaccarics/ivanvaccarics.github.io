@@ -81,7 +81,6 @@
             this.setupSmoothScrolling();
             this.setupActiveNavigation();
             this.setupSectionReveals();
-            this.setupTypingAnimation();
             this.setupErrorHandling();
             this.setupThemeToggle();
             this.setupMobileMenu();

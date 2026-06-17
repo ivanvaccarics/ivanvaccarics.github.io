@@ -1,3 +1,21 @@
+## [1.6.0] - 2026-06-17
+
+### Changed
+- **Visual identity redesign — "Graphite & Copper"**: Replaced the generic dark + electric-blue theme with a distinctive instrument-inspired palette (graphite ink `#0F1217`, warm paper-white text, copper signal `#E0863C`, teal trace) drawn from Ivan's IoT / signal-processing background. Light theme reworked into a cool technical "graph paper" scheme.
+- **Typography system**: Three deliberate roles — Zodiak serif display (replaces Clash Grotesk), Satoshi body, and new IBM Plex Mono for data/labels. Updated font `<link>`s across all pages.
+- **Hero rebuilt as a "lab dossier"**: serif name, monospace credential metrics row (h-index, papers, EU projects, Azure certs) over a faint plotted grid, and a registration-framed portrait — replacing the centered circular avatar and typing-cursor animation.
+- **Experience timeline** restyled from the alternating center-line layout into a single measured time-axis with copper square "sample-point" nodes and monospace metadata.
+- **Section labels**: Replaced emoji headings (💼🎓🛠️🏆) and the wave GIF with scientific-paper-style monospace figure labels.
+- Tightened component radii and swapped all electric-blue accents/shadows for copper throughout cards, buttons, tags, and hover states.
+
+### Added
+- **Signature signal trace**: An SVG waveform that sweeps across the hero floor on load (research → production narrative), with `prefers-reduced-motion` fallback.
+- `--color-signal`, `--color-trace`, `--color-surface-2`, `--color-muted`, `--font-display`, and `--font-mono` design tokens.
+
+### Removed
+- Typing animation on the hero subtitle (concentrated motion into the single hero signature instead).
+- Emoji section headings and `wave.gif` usage.
+
 ## [1.5.1] - 2025-08-18
 
 ### Removed
